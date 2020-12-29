@@ -1,0 +1,39 @@
+algorithm algo
+VAR
+somme:INTEGER:=0
+hand : ARRAY_OF INTEGER[10];
+card : ARRAY_OF INTEGER[4]; 
+result : ARRAY_OF INTEGER[14]; 
+i,j,count,var:INTEGER
+Begin
+for i from 0 to 9 do
+   result[i]=hand[i]
+end for
+count=8
+for i from 0 to 3 do
+    count=count+1
+    if(result[count-1]<=card[i])
+        result[count]=card[i]
+        continue
+    end if
+    for j from 0 to count-1 do
+        if(result[j]>card[i]):
+             x=result[j]
+             result[j]=card[i]
+             j=j+1
+             while(j<count) do
+                  var=result[j]
+                  result[j]=x
+                  x=var
+                  j=j+1
+             end while
+             tab[j]=x
+             break
+         end if 
+     end for 
+end for 
+write(result)
+
+         
+    
+    
